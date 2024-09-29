@@ -1,10 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"log/slog"
+	"os"
+
+	"github.com/XenHunt/go-test-project/internal/config"
+)
 
 func main() {
-	var intArr [3]int32 = [3]int32{1, 2, 3}
-	intArrOther := [...]int8{1, 2, 3}
-	fmt.Println(intArr, intArrOther)
+	cfg := config.MustLoad()
 
+	log := setupLogger()
+	log = log.With("env", cfg.Env)
+
+	// log.Info("", args ...any)
+	log.Debug("Debug started")
+	// fmt.Println(cfg.DataBaseConfig)
+}
+
+func setupLogger() *slog.Logger {
+	//TODO надо добавить различные уровни логирования
+	var log *slog.Logger
+	log = slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
+	return log
 }
