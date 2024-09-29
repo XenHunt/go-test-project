@@ -25,6 +25,7 @@ type DataBaseConfig struct {
 	Port     string `env:"DB_PORT" env-required:"true"`
 	User     string `env:"DB_USER" env-required:"true"`
 	Password string `env:"DB_PASSWORD" env-required:"true"`
+	Database string `env:"DB_DATABASE" env-required:"true"`
 }
 
 func MustLoad() *Config {
