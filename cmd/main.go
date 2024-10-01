@@ -15,12 +15,16 @@ func main() {
 
 	// log.Info("", args ...any)
 	log.Debug("Debug started")
+	log.Debug("%s", cfg)
 	// fmt.Println(cfg.DataBaseConfig)
 }
 
 func setupLogger() *slog.Logger {
 	//TODO надо добавить различные уровни логирования
 	var log *slog.Logger
-	log = slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
+	log = slog.New(slog.NewTextHandler(
+		os.Stdout,
+		&slog.HandlerOptions{Level: slog.LevelDebug},
+	))
 	return log
 }
