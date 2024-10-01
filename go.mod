@@ -4,6 +4,9 @@ go 1.23.1
 
 require (
 	github.com/BurntSushi/toml v1.2.1 // indirect
+	github.com/ajg/form v1.5.1 // indirect
+	github.com/go-chi/chi/v5 v5.1.0 // indirect
+	github.com/go-chi/render v1.0.3 // indirect
 	github.com/go-pg/zerochecker v0.2.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
 	github.com/ilyakaznacheev/cleanenv v1.5.0 // indirect

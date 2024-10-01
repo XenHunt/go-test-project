@@ -5,6 +5,9 @@ import (
 	"os"
 
 	"github.com/XenHunt/go-test-project/internal/config"
+	"github.com/XenHunt/go-test-project/internal/db_module"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 )
 
 func main() {
@@ -17,6 +20,10 @@ func main() {
 	log.Debug("Debug started")
 	log.Debug("%s", cfg)
 	// fmt.Println(cfg.DataBaseConfig)
+	database := db_module.MakeConection(cfg.DataBaseConfig)
+	router := chi.NewRouter()
+
+	router.Use(middleware.Logger)
 }
 
 func setupLogger() *slog.Logger {
