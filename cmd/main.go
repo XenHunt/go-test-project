@@ -5,14 +5,13 @@ import (
 	"os"
 
 	"github.com/XenHunt/go-test-project/internal/config"
-	"github.com/XenHunt/go-test-project/internal/db_module"
+	db_module "github.com/XenHunt/go-test-project/internal/database"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
 func main() {
 	cfg := config.MustLoad()
-
 	log := setupLogger()
 	log = log.With("env", cfg.Env)
 
